@@ -20,13 +20,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fab = (FloatingActionButton) findViewById(R.id.fab_change_sorting);
 
+        fab = (FloatingActionButton) findViewById(R.id.fab_change_sorting);
         noInternet = (TextView) findViewById(R.id.noInternet);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        ResponseManager m = new ResponseManager(MainActivity.this,mRecyclerView);
 
-        if (isNetworkAvailable()){
+        ResponseManager m = new ResponseManager(MainActivity.this, mRecyclerView);
+
+        if (isNetworkAvailable()) {
             m.execute();
             noInternet.setVisibility(View.GONE);
         }
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private boolean isNetworkAvailable() {
+    private boolean isNetworkAvailable(){
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
