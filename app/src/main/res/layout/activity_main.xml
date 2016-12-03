@@ -14,6 +14,16 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         tools:listitem="@layout/list_item_ev"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/noInternet"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/no_internet_connection"/>
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_change_sorting"
         android:layout_width="wrap_content"

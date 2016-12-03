@@ -41,7 +41,7 @@ public class EVActivityAdapter extends RecyclerView.Adapter<EVActivityAdapter.Vi
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final CosmonautActivity cosmonautActivity = mCosmonautActivityList.get(position);
-
+        holder.date.setText(cosmonautActivity.getDate().toString());
         holder.tvName.setText(cosmonautActivity.getPurpose());
     }
 
@@ -53,9 +53,11 @@ public class EVActivityAdapter extends RecyclerView.Adapter<EVActivityAdapter.Vi
     static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvName;
+        TextView date;
 
         public ViewHolder(View itemView) {
             super(itemView);
+            date = (TextView) itemView.findViewById(R.id.date);
             tvName = (TextView) itemView.findViewById(R.id.tv_patent_name);
         }
     }

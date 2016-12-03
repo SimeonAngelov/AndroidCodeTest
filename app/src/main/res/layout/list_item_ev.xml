@@ -6,6 +6,13 @@
               android:background="@android:drawable/list_selector_background"
               android:minHeight="50dp"
               android:orientation="vertical">
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:textSize="10sp"
+        tools:text="Date"/>
 
     <TextView
         android:id="@+id/tv_patent_name"
