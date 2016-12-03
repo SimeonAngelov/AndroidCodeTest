@@ -1,6 +1,7 @@
 package com.rockspin.androiddevtest;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,11 +55,13 @@ public class EVActivityAdapter extends RecyclerView.Adapter<EVActivityAdapter.Vi
 
         TextView tvName;
         TextView date;
+        CardView cardView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             date = (TextView) itemView.findViewById(R.id.date);
             tvName = (TextView) itemView.findViewById(R.id.tv_patent_name);
+            cardView = (CardView) itemView.findViewById(R.id.card_view);
         }
     }
 }
