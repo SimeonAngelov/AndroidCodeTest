@@ -16,12 +16,14 @@ public class ResponseManager extends AsyncTask<Void,Void,Void>{
     private RecyclerView recyclerView;
     private Context context;
     List<CosmonautActivity> ideaList;
+    EVActivityAdapter adapter;
 
-    public ResponseManager(Context context,  RecyclerView recyclerView) {
+    public ResponseManager(Context context,  RecyclerView recyclerView, EVActivityAdapter adapter) {
         progressDialog = new ProgressDialog(context);
         progressDialog.setMessage("Loading...");
         this.recyclerView = recyclerView;
         this.context = context;
+        this.adapter = adapter;
     }
 
     @Override
@@ -46,7 +48,7 @@ public class ResponseManager extends AsyncTask<Void,Void,Void>{
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
         progressDialog.dismiss();
-        EVActivityAdapter adapter = new  EVActivityAdapter(context, ideaList);
+        adapter.setCosmonautActivityList(ideaList);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setAdapter(adapter);
     }

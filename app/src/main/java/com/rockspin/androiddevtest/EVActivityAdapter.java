@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.rockspin.androiddevtest.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class EVActivityAdapter extends RecyclerView.Adapter<EVActivityAdapter.ViewHolder> {
@@ -25,6 +26,11 @@ public class EVActivityAdapter extends RecyclerView.Adapter<EVActivityAdapter.Vi
     public EVActivityAdapter(Context context, List<CosmonautActivity> ideaList) {
         mInflater = LayoutInflater.from(context);
         mCosmonautActivityList = ideaList;
+    }
+
+    public void reverseList() {
+        Collections.reverse(mCosmonautActivityList);
+        notifyDataSetChanged();
     }
 
     public void setCosmonautActivityList(List<CosmonautActivity> cosmonautActivityList) {
@@ -64,4 +70,6 @@ public class EVActivityAdapter extends RecyclerView.Adapter<EVActivityAdapter.Vi
             cardView = (CardView) itemView.findViewById(R.id.card_view);
         }
     }
+
+
 }

@@ -24,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
         fab = (FloatingActionButton) findViewById(R.id.fab_change_sorting);
         noInternet = (TextView) findViewById(R.id.noInternet);
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        final EVActivityAdapter adapter = new EVActivityAdapter(MainActivity.this,null);
 
-        ResponseManager m = new ResponseManager(MainActivity.this, mRecyclerView);
+        ResponseManager m = new ResponseManager(MainActivity.this, mRecyclerView,adapter);
 
         if (isNetworkAvailable()) {
             m.execute();
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+               adapter.reverseList();
             }
         });
     }
