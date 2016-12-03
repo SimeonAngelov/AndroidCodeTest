@@ -1,5 +1,6 @@
 package com.rockspin.androiddevtest;
 
+import android.animation.Animator;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -8,11 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.rockspin.androiddevtest.R;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 
 public class EVActivityAdapter extends RecyclerView.Adapter<EVActivityAdapter.ViewHolder> {
 
@@ -47,6 +51,7 @@ public class EVActivityAdapter extends RecyclerView.Adapter<EVActivityAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+        YoYo.with(Techniques.FlipInX).playOn(holder.cardView);
         final CosmonautActivity cosmonautActivity = mCosmonautActivityList.get(position);
         holder.date.setText(cosmonautActivity.getDate().toString());
         holder.tvName.setText(cosmonautActivity.getPurpose());
@@ -68,6 +73,7 @@ public class EVActivityAdapter extends RecyclerView.Adapter<EVActivityAdapter.Vi
             date = (TextView) itemView.findViewById(R.id.date);
             tvName = (TextView) itemView.findViewById(R.id.tv_patent_name);
             cardView = (CardView) itemView.findViewById(R.id.card_view);
+
         }
     }
 
